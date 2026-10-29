@@ -1,0 +1,66 @@
+<html>
+<head>
+<script>
+function chkname() {
+    var name = document.getElementById("name").value.trim();
+    var letters = /^[A-Za-z ]+$/;
+    if (name == "") {
+        alert("Name field cannot be left blank.");
+        return false;
+    }
+    if (!name.match(letters)) {
+        alert("Name must contain alphabets only.");
+        return false;
+    }
+    if (name.length < 6) {
+        alert("Name must be at least 6 characters in length.");
+        return false;
+    }
+    return true;
+}
+
+function chkpassword() {
+    var pwd = document.getElementById("password").value;
+    if (pwd.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+    }
+    return true;
+}
+
+function validateForm() {
+    if (chkname() && chkpassword()) {
+        alert("Validation Successful! Registration details accepted.");
+        return true;
+    }
+    return false;
+}
+</script>
+</head>
+<body>
+<br><br>
+<center>
+<h2><font face="Georgia" color="#003366">Name & Password Validation</font></h2>
+<br>
+<form name="regForm" onsubmit="return validateForm()">
+<table border="1" cellpadding="8" cellspacing="0">
+<tr>
+<td><b>Full Name:</b></td>
+<td><input type="text" id="name" size="24"></td>
+</tr>
+<tr>
+<td><b>Password:</b></td>
+<td><input type="password" id="password" size="24"></td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+<input type="submit" value="Submit">
+&nbsp;&nbsp;
+<input type="reset" value="Clear">
+</td>
+</tr>
+</table>
+</form>
+</center>
+</body>
+</html>

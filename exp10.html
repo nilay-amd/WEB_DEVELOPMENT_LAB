@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment 10 - Survey Form</title>
+<style>
+body {
+font-family: 'Segoe UI', Arial, sans-serif;
+background-color: #f0f4f8;
+margin: 0;
+padding: 0;
+}
+header {
+background-color: #004080;
+color: white;
+text-align: center;
+padding: 20px;
+}
+.container {
+max-width: 600px;
+margin: 20px auto;
+background-color: #ffffff;
+padding: 25px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.12);
+}
+label {
+display: block;
+margin-bottom: 6px;
+font-weight: bold;
+}
+input[type="text"], 
+input[type="email"], 
+select, 
+textarea {
+width: 100%;
+padding: 10px;
+margin-bottom: 20px;
+border: 1px solid #cbd5e0;
+border-radius: 5px;
+box-sizing: border-box;
+}
+textarea {
+height: 100px;
+resize: vertical;
+}
+.btn {
+background-color: #004080;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+}
+.btn:hover {
+background-color: #002b55;
+}
+.error {
+color: #cc0000;
+font-size: 14px;
+margin-top: 10px;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Survey Form</h1>
+</header>
+<div class="container">
+<form id="survey-form" action="#" method="post">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name">
+<label for="email">Email:</label>
+<input type="email" id="email" name="email">
+<label for="age">Age:</label>
+<select id="age" name="age">
+<option value="">Select your age</option>
+<option value="under18">Under 18</option>
+<option value="18-30">18-30</option>
+<option value="31-50">31-50</option>
+<option value="over50">Over 50</option>
+</select>
+<label for="comments">Comments:</label>
+<textarea id="comments" name="comments"></textarea>
+<input type="submit" class="btn" value="Submit">
+</form>
+<div id="error-message" class="error"></div>
+</div>
+<script>
+// JavaScript Form Validation
+document.getElementById('survey-form').addEventListener('submit', function (e) {
+var name = document.getElementById('name').value;
+var email = document.getElementById('email').value;
+if (name.trim() === '' || email.trim() === '') {
+e.preventDefault(); // Prevent form submission
+document.getElementById('error-message').innerHTML = 'Name and Email are required fields.';
+} else {
+document.getElementById('error-message').innerHTML = '';
+}
+});
+</script>
+</body>
+</html>
